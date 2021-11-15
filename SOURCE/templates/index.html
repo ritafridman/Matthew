@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='static/css/home_style.css'>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/home_js.js') }}"></script>
+    <title>תשאלו את מת'יו</title>
+</head>
+
+<body onload="dateTime()">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <a class="nav-link" href="signin">הרשמה <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <a class="nav-link" href="login">כניסה <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="date"><span onload="dateTime()" id="date"></span></div>
+        <img class="main_logo" src="static/images/main_logo.png"></img>
+    </nav>
+
+    <div class="slider" id="main-slider">
+        <div class="slider-wrapper">
+            <img src="static/images/classroom1.jpg" alt="First" class="slide" />
+            <img src="static/images/classroom2.png" alt="Second" class="slide" />
+            <img src="static/images/classroom3.jpg" alt="Third" class="slide" />
+            <img src="static/images/classroom4.png" alt="Forth" class="slide" />
+        </div>
+    </div>
+    <div class="grid">
+        <div class="d-flex flex-row">
+            <div class="d-flex justify-content-center col-xl register_num col">
+               מספר מורים רשומים:
+                 <div class="col">
+                     <h2 style="font-size: 100px;">{{teacher_num}}</h2>
+                 </div>
+            </div>
+            <div class="d-flex justify-content-center col-xl register_num col">
+                מספר תלמידים רשומים:
+                <div class="col">
+                    <h2 style="font-size: 100px;">{{studen_num}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="left:20px;" class="footer footer-expand-lg footer-light bg-light">
+        <a id="content" href="mailto:ritafridman92@gmail.com">E-mail: ritafridman92@gmail.com</a>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

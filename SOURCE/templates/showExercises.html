@@ -1,0 +1,62 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' media='screen' href='../static/css/showExercises_style.css'>
+        <title>פרטי כיתה</title>
+    </head>
+    <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <button> <a class="nav-link" href="/logout">התנתק <span class="sr-only">(current)</span></a></button>
+                </li>
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <a class="nav-link">{{result[0][0]}} {{result[0][1]}}<span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+        <a href="/teacherWorkEnvironment"><img class="main_logo" src="../static/images/main_logo.png"></img></a>
+    </nav>
+
+    <br>
+    <div class="navbar navbar-expand-lg navbar-light bg-light navBarclass">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand chooseClass col-4"> כיתה: {{className}} <span class="sr-only">(current)</span></a>
+            <a class="nav-link col-4 chooseClass" href="/teacherWorkEnvironment">החלפת כיתה<span class="sr-only">(current)</span></a>
+            <a class="nav-link col-4 chooseClass" href="/addClass">הוספת כיתה חדשה <span class="sr-only">(current)</span></a>
+            <a class="nav-link chooseClass col-4" href="/addExercise"> הוספת תרגיל חדש <span class="sr-only">(current)</span></a>
+            <a class="nav-link col-4 chooseClass" href="/showExercises/{{className}}">צפייה בתרגילים קיימים<span class="sr-only">(current)</span></a>
+        </nav>
+    </div>
+
+    <br>
+
+    <div class="navbar navbar-expand-lg navbar-light bg-light" id="navBarChooseEX">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" style="font-weight:bold;">בחר תרגיל</a>
+        </nav>
+    </div>
+    <div class="navbar-light bg-light" id="navBarClass" >
+        <div style="float:right; padding-top:1%; margin-right:20px;">
+
+            {% for item in range(exNum) %}
+
+                <a class="navbar-brand" id="navBarEX" >{{exList[item][0]}}</a>
+                <a href="/teacherFeedback/{{className}}/{{exList[item][0]}}"><img class="arrow" src="../static/images/arrow.png" ></img></a>
+                </br>
+
+            {% endfor %}
+
+        </div>
+        <img class="rainbow" src="../static/images/happy.png"></img>
+    </div>
+
+    </body>
+    </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='\../static/css/equationInfo_style.css'>
+    <title>חתך משוואה</title>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <button> <a class="nav-link" href="/logout">התנתק <span class="sr-only">(current)</span></a></button>
+                </li>
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <a class="nav-link">{{result[0][0]}} {{result[0][1]}}<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <a href="/teacherWorkEnvironment"><img class="main_logo" src="\../static/images/main_logo.png"></img></a>
+    </nav>
+
+    <br>
+    <div class="navbar navbar-expand-lg navbar-light bg-light navBarclass">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="nav-link chooseClass" href="/teacherWorkEnvironment">החלפת כיתה<span class="sr-only">(current)</span></a>
+            <a class="nav-link chooseClass" href="/addClass">הוספת כיתה חדשה <span class="sr-only">(current)</span></a>
+        </nav>
+    </div>
+
+    <br>
+
+    <div class="navbar navbar-expand-lg navbar-light bg-light" id="navBarTeacher">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" style="font-weight:bold;">משוואה: {{equation}} </a>
+        </nav>
+    </div>
+
+    <br>
+    <div class="navbar col navbar-light bg-light"  id="navbarStudents">
+        <img class="rainbow" src="\../static/images/happy.png"></img>
+        <tr class="navbar-light" >
+            <div class="navbar-light" id="exList">
+                <table>
+                    <tr>
+                        <div class="navbar-light">
+                            <th><a class="titleText">שם התלמיד</a></th>
+                            <th><a class="titleText" >תעודת זהות</a></th>
+                            <th><a class="titleText" >סטטוס</a></th>
+                            <th><a class="titleText" >שגיאה</a></th>
+
+                        </div>
+                    </tr>
+                    <tr>
+                    </br>
+                        {% for item in range(eqNum) %}
+                        <th><a>{{equationData[item][0]}}</a></th>
+                        <th><a>{{equationData[item][1]}} {{equationData[item][2]}}</a></th>
+                          {% if equationData[item][3] == 9 %}
+                        <th><img class="sorf" src="\../static/images/success.png"></img></th>
+                    {% else %}
+                        <th><img class="sorf" src="\../static/images/fail.png"></img></th>
+                    {% endif %}
+                        <th><a>{{equationData[item][4]}}</a></th>
+                    </tr>
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
+        </tr>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>

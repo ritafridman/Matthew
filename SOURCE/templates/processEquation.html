@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/css/exerciseDetails_style.css'>
+    <title>סביבת עבודה - תלמיד</title>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <button> <a class="nav-link" href="/logout">התנתק <span class="sr-only">(current)</span></a></button>
+                </li>
+                <li class="nav-item active" style="font-size: 20px; padding-right: 25px;">
+                    <a class="nav-link">{{result[0][0]}} {{result[0][1]}} <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+        <a href="/studentEnvironment"><img class="main_logo" src="../static/images/main_logo.png"></img></a>
+    </nav>
+</div>
+</br>
+<div class="navbar navbar-expand-lg navbar-light bg-light navBarclass">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand chooseClass col-4"> כיתה: {{className}} <span class="sr-only">(current)</span></a>
+    </nav>
+</div>
+
+</br>
+<div class="navbar navbar-expand-lg navbar-light bg-light" id="navBarTeacher">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" style="width:80%; font-weight:bold; " >{{exName}}</a>
+    </nav>
+</div>
+<div class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <img class="rainbow" src="../static/images/rainbow.png"></img>
+
+    <nav class="navbar-brand" id="exList" >
+        <table >
+            <tr >
+                <a class="navbar-brand" style="width:30%; font-weight:bold; " >משוב</a>
+                <a class="navbar-brand" style="width:30%; font-weight:bold; " >פתרון-קנבס</a>
+                <a class="navbar-brand" style="width:40%; font-weight:bold; " >פתרון-מקלדת</a>
+                <a class="navbar-brand" style="width:40%; font-weight:bold; " >משוואה</a>
+                <a class="navbar-brand" style="width:10%; font-weight:bold; " >מספר משוואה</a>
+            </tr>
+            <tr >
+                </br>
+                {% for item in range(eqNum) %}
+                <a class="navbar-brand" style="width:30%" href=""></a>
+                <a class="navbar-brand" style="width:30%" href=""></a>
+                <form method="POST" >
+                    <input type="text" name="solution" style="width:30%; height:30%;">
+                    <input type="submit" href=""style="width:20%; height:30%;">
+                </form>
+                <a class="navbar-brand" style="width:40%" href="">{{eqList[item][0]}}</a>
+                <a class="navbar-brand" style="width:10%" href="">{{item+1}}</a>
+                </br>
+
+                {% endfor %}
+
+            </tr>
+
+        </table>
+    </nav>
+
+</div>
+</body>
+</html>
